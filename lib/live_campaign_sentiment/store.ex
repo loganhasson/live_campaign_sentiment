@@ -29,6 +29,8 @@ defmodule LiveCampaignSentiment.Store do
 
   def handle_cast({:update, payload = %{name: name}}, state) when name in @valid_names do
     new_state = LiveCampaignSentiment.UpdateStats.process(payload, state)
+                  |> LiveCampaignSentiment.StoreAndPublishStats.handle
+
     {:noreply, new_state}
   end
 

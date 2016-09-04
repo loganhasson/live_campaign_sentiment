@@ -5,13 +5,6 @@
 # is restricted to this project.
 use Mix.Config
 
-config :extwitter, :oauth, [
-  consumer_key: "O59tA4rzOEizOx440AZvXM9me",
-  consumer_secret: "00MxxA76nrco1MUFN0taWqbAjiMSz6LLjBZkJRn4FZBH7XK2el",
-  access_token: "15052759-FlOanNi7nRram66HmLOnGvQNAUiKm4mnbdJsHD2nA",
-  access_token_secret: "c88Eto7cuMCWWMx7o7XDOIhXYF4Ue80bPXMUvvjI5VnHH"
-]
-
 # Configures the endpoint
 config :live_campaign_sentiment, LiveCampaignSentiment.Endpoint,
   url: [host: "localhost"],
