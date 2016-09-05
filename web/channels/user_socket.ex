@@ -3,6 +3,7 @@ defmodule LiveCampaignSentiment.UserSocket do
 
   ## Channels
   # channel "rooms:*", LiveCampaignSentiment.RoomChannel
+  channel "sentiment:*", LiveCampaignSentiment.SentimentChannel
 
   ## Transports
   transport :websocket, Phoenix.Transports.WebSocket
