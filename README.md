@@ -1,5 +1,12 @@
 # LiveCampaignSentiment
 
+# TODO
+
+1. Line graph with rolling average (calculate every 10 minutes or so)
+2. Bar graph with positives/negatives/neutral side by side (also rolling
+   average)
+3. State-by-state representation
+
 To start your Phoenix app:
 
   * Install dependencies with `mix deps.get`
