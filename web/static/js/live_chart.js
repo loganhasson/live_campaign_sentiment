@@ -1,4 +1,8 @@
 import { Socket } from "phoenix"
+//import { LiveLine } from "./live_line"
+//import { LiveHighchartLine } from "./live_highchart_line"
+//import { LiveSmoothieChart } from "./live_smoothie_chart"
+import { LiveColumnChart } from "./live_column_chart"
 
 export class LiveChart {
   constructor() {
@@ -31,6 +35,10 @@ export class LiveChart {
   }
 
   _setupGraphs() {
+    //this.lineChart = new LiveLine()
+    //this.highchartLineChart = new LiveHighchartLine()
+    //this.smoothieChart = new LiveSmoothieChart()
+    this.columnChart = new LiveColumnChart()
     google.load("visualization", "1", {packages: ["corechart"]})
 
     google.setOnLoadCallback(() => {
@@ -58,6 +66,11 @@ export class LiveChart {
 
     if (this.clinton_chart)
       this.clinton_chart.draw(convertedClintonData, {title: "Hillary Clinton - " + payload.clinton.count + " Tweets", is3D: false})
+
+    //this.lineChart.updateChart(payload)
+    //this.highchartLineChart.updateChart(payload)
+    //this.smoothieChart.updateChart(payload)
+    this.columnChart.updateChart(payload)
   }
 
   _convertPayload(payload) {

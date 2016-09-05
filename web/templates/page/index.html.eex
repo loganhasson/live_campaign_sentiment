@@ -5,3 +5,19 @@
 <div class="col-xs-12">
   <div id="clinton-chart"></div>
 </div>
+
+<div class="col-xs-12">
+  <div id="live-column-container" style="min-width: 310px; height: 400px; margin: 0 auto"></div>
+</div>
+
+<div class="col-xs-12">
+  <canvas id="mycanvas" width="500" height="300"></canvas>
+</div>
+
+<div class="col-xs-12">
+  <div id="highcharts-spline-container" style="min-width: 310px; height: 400px; margin: 0 auto"></div>
+</div>
+
+<div class="col-xs-12">
+  <div id="chartContainer" style="height: 300px; width: 100%;"></div>
+</div>
