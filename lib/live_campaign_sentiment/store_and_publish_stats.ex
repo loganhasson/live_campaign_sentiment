@@ -15,7 +15,7 @@ defmodule LiveCampaignSentiment.StoreAndPublishStats do
     state
   end
 
-  defp publish(state = %{trump: %{count: trump_count}, clinton: %{count: clinton_count}}) when rem((trump_count + clinton_count), 100) == 0 do
+  defp publish(state = %{trump: %{count: trump_count}, clinton: %{count: clinton_count}}) when rem((trump_count + clinton_count), 10) == 0 do
     LiveCampaignSentiment.Endpoint.broadcast("sentiment:global", "global_sentiment_update", state)
 
     :ok
