@@ -19,7 +19,7 @@ defmodule LiveCampaignSentiment.Mixfile do
   def application do
     [mod: {LiveCampaignSentiment, []},
      applications: [:phoenix, :phoenix_html, :cowboy, :logger, :gettext,
-                    :phoenix_ecto, :postgrex, :redix]]
+                    :phoenix_ecto, :postgrex, :redix, :timex]]
   end
 
   # Specifies which paths to compile per environment.
@@ -42,7 +42,8 @@ defmodule LiveCampaignSentiment.Mixfile do
      {:oauth, github: "tim/erlang-oauth"},
      {:ex_sider, "~> 0.1"},
      {:poolboy, "~> 1.5"},
-     {:redix, ">= 0.0.0"}]
+     {:redix, ">= 0.0.0"},
+     {:timex, "~> 3.0"}]
   end
 
   # Aliases are shortcut or tasks specific to the current project.

@@ -12,7 +12,7 @@ defmodule LiveCampaignSentiment.Sentiment do
   defp update_store(value, tweet) do
     case get_name_from_tweet(tweet) do
       {:ok, name} ->
-        LiveCampaignSentiment.Store.update(%{name: name, value: value})
+        LiveCampaignSentiment.Store.update(%{name: name, value: value, timestamp: tweet.created_at})
       {:nomatch} ->
         nil
     end

@@ -1,12 +1,12 @@
 defmodule LiveCampaignSentiment.UpdateStats do
-  def process(%{name: name, value: value}, state) do
+  def process(%{name: name, value: value, timestamp: timestamp}, state) do
     new_count   = state[name][:count] + 1
     new_total   = state[name][:total] + value
     new_average = (new_total / new_count) |> Float.round(4)
 
     {new_positive, new_negative, new_positive_percent, new_negative_percent} = process_value(value, state[name], new_count)
 
-    %{state | name => %{count: new_count, average: new_average, total: new_total, positive: new_positive, negative: new_negative, positive_percent: new_positive_percent, negative_percent: new_negative_percent}}
+    %{state | "dummy" => timestamp, name => %{count: new_count, average: new_average, total: new_total, positive: new_positive, negative: new_negative, positive_percent: new_positive_percent, negative_percent: new_negative_percent}}
   end
 
   defp process_value(value, state, count) do
