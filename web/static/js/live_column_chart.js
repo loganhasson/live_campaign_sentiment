@@ -55,12 +55,12 @@ export class LiveColumnChart {
   }
 
   updateChart(payload) {
-    var trump_positive = payload.trump.positive_percent
-    var trump_negative = payload.trump.negative_percent
+    var trump_positive = payload.trump.rolling.positive_percent
+    var trump_negative = payload.trump.rolling.negative_percent
     var trump_neutral  = 100.00 - (trump_positive + trump_negative)
 
-    var clinton_positive = payload.clinton.positive_percent
-    var clinton_negative = payload.clinton.negative_percent
+    var clinton_positive = payload.clinton.rolling.positive_percent
+    var clinton_negative = payload.clinton.rolling.negative_percent
     var clinton_neutral  = 100.00 - (clinton_positive + clinton_negative)
 
     this.chart.series[0].setData([trump_negative, trump_neutral, trump_positive], false, true)
