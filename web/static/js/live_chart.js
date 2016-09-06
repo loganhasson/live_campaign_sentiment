@@ -1,7 +1,7 @@
 import { Socket } from "phoenix"
 //import { LiveLine } from "./live_line"
 //import { LiveHighchartLine } from "./live_highchart_line"
-//import { LiveSmoothieChart } from "./live_smoothie_chart"
+import { LiveSmoothieChart } from "./live_smoothie_chart"
 import { LiveColumnChart } from "./live_column_chart"
 
 export class LiveChart {
@@ -38,7 +38,7 @@ export class LiveChart {
   _setupGraphs() {
     //this.lineChart = new LiveLine()
     //this.highchartLineChart = new LiveHighchartLine()
-    //this.smoothieChart = new LiveSmoothieChart()
+    this.smoothieChart = new LiveSmoothieChart()
     this.columnChart = new LiveColumnChart()
     google.load("visualization", "1", {packages: ["corechart"]})
 
@@ -70,7 +70,7 @@ export class LiveChart {
 
     //this.lineChart.updateChart(payload)
     //this.highchartLineChart.updateChart(payload)
-    //this.smoothieChart.updateChart(payload)
+    this.smoothieChart.updateChart(payload)
     this.columnChart.updateChart(payload)
   }
 

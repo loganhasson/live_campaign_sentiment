@@ -16,8 +16,8 @@ export class LiveSmoothieChart {
 
   updateChart(data) {
     var time = new Date().getTime()
-    var trumpPercent = data.trump.positive_percent
-    var clintonPercent = data.clinton.positive_percent
+    var trumpPercent = data.trump.rolling.positive_percent
+    var clintonPercent = data.clinton.rolling.positive_percent
 
     this.trumpData.append(time, trumpPercent)
     this.clintonData.append(time, clintonPercent)
