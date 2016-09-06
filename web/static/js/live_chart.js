@@ -24,7 +24,7 @@ export class LiveChart {
     let globalChannel = socket.channel("sentiment:global", {})
 
     globalChannel.on("global_sentiment_update", payload => {
-      console.log(payload)
+      //console.log(payload)
       this._updateGraphs(payload)
     })
 
