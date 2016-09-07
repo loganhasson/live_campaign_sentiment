@@ -3,6 +3,7 @@ import { Socket } from "phoenix"
 //import { LiveHighchartLine } from "./live_highchart_line"
 import { LiveSmoothieChart } from "./live_smoothie_chart"
 import { LiveColumnChart } from "./live_column_chart"
+import { LiveMap } from "./live_map"
 
 export class LiveChart {
   constructor() {
@@ -40,6 +41,7 @@ export class LiveChart {
     //this.highchartLineChart = new LiveHighchartLine()
     this.smoothieChart = new LiveSmoothieChart()
     this.columnChart = new LiveColumnChart()
+    this.liveMap = new LiveMap()
     google.load("visualization", "1", {packages: ["corechart"]})
 
     google.setOnLoadCallback(() => {
@@ -72,6 +74,7 @@ export class LiveChart {
     //this.highchartLineChart.updateChart(payload)
     this.smoothieChart.updateChart(payload)
     this.columnChart.updateChart(payload)
+    this.liveMap.updateChart(payload)
   }
 
   _convertPayload(payload) {
