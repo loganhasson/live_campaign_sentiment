@@ -226,7 +226,8 @@ export class LiveMap {
       },
       colorAxis: {
           min: 1,
-          type: 'logarithmic',
+          max: 100,
+          type: 'linear',
           minColor: '#FF0000',
           maxColor: '#0000FF',
           stops: [
@@ -256,12 +257,31 @@ export class LiveMap {
   }
 
   updateChart(payload) {
-    //var newData = []
-    //$.each(payload.trump.location, function(state, data) {
-      //newData.push({"value": data.positive_percent + 1, "code": state})
-    //})
+    var newData = []
 
-    //if (this.chart.series[0].data != newData)
-      //this.chart.series[0].setData(newData, true, true)
+    $.each(payload.trump.location, function(state, data) {
+      var clintonData = payload.clinton.location[state]
+
+      try {
+        if (typeof(clintonData) !== "undefined")
+          var trumpAvg = (data.average * -1)
+          var trumpCount = data.count
+          var clintonAvg = (clintonData.average)
+          var clintonCount = clintonData.count
+
+          var score = ((trumpAvg * trumpCount) + (clintonAvg * clintonCount))/(trumpCount + clintonCount)
+
+          if (score < 0)
+            var value = (-1*(50*score)) - 50
+          else
+            var value = (score*100) - 100
+
+          newData.push({"value": value, "code": state})
+      } catch(e) {
+        console.log('error')
+      }
+    })
+
+    this.chart.series[0].setData(newData, true, true)
   }
 }
