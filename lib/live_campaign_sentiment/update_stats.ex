@@ -39,11 +39,26 @@ defmodule LiveCampaignSentiment.UpdateStats do
     {:ok, state}
   end
   defp parse_state_name(place = %{full_name: full_name, country_code: "US", place_type: "admin"}) do
-    [state, _] = String.split(full_name, ", ")
-
-    state |> get_state_abbreviation
+    case String.split(full_name, ", ") do
+      [state, _] -> state |> get_state_abbreviation
+      _ ->
+        handle_missing_comma(full_name)
+    end
   end
   defp parse_state_name(_), do: :error
+
+  defp handle_missing_comma(full_name) do
+    last_chars = String.split(full_name, " ") |> List.last
+
+    case last_chars do
+      nil -> :error
+      _   ->
+        cond do
+          String.match?(last_chars, ~r/^[A-Z]{2}$/) -> {:ok, last_chars}
+          true -> :error
+        end
+    end
+  end
 
   defp get_state_abbreviation(state_name) do
     state_mappings = %{
