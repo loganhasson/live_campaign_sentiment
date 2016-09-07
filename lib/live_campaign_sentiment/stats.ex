@@ -4,7 +4,7 @@ defmodule LiveCampaignSentiment.Stats do
 
     case RedisHash.pull(stored_stats) do
       %{} ->
-        %{trump: %{rolling: %{tweets: []}, count: 0, average: 0, total: 0, positive: 0, negative: 0}, clinton: %{rolling: %{tweets: []}, count: 0, average: 0, total: 0, positive: 0, negative: 0}}
+        %{trump: %{location: %{}, rolling: %{tweets: []}, count: 0, average: 0, total: 0, positive: 0, negative: 0}, clinton: %{location: %{}, rolling: %{tweets: []}, count: 0, average: 0, total: 0, positive: 0, negative: 0}}
 
       stored_results -> stored_results
     end

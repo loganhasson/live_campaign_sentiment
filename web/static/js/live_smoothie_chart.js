@@ -7,7 +7,7 @@ export class LiveSmoothieChart {
   }
 
   _setupChart() {
-    this.chart = new SmoothieChart()
+    this.chart = new SmoothieChart({grid: {fillStyle: 'transparent' }, maxValue: 3.00, minValue: -3.00})
     this.chart.streamTo(document.getElementById("mycanvas"), 2000)
 
     this.chart.addTimeSeries(this.trumpData, { strokeStyle:'rgb(255, 0, 0)', lineWidth: 3 }) //fillStyle:'rgba(255, 0, 0, 0.4)', lineWidth:3 })
@@ -16,8 +16,10 @@ export class LiveSmoothieChart {
 
   updateChart(data) {
     var time = new Date().getTime()
-    var trumpPercent = data.trump.rolling.positive_percent
-    var clintonPercent = data.clinton.rolling.positive_percent
+    var trumpPercent = data.trump.rolling.average
+    var clintonPercent = data.clinton.rolling.average
+    //var trumpPercent = data.trump.rolling.positive_percent
+    //var clintonPercent = data.clinton.rolling.positive_percent
 
     this.trumpData.append(time, trumpPercent)
     this.clintonData.append(time, clintonPercent)

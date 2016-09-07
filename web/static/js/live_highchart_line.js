@@ -1,5 +1,7 @@
 export class LiveHighchartLine {
   constructor() {
+    this.lastUpdatedAtSeconds = null
+    this.queue = []
     this.chart = new Highcharts.Chart("highcharts-spline-container", {
       chart: {
         type: 'spline',
@@ -36,12 +38,30 @@ export class LiveHighchartLine {
       },
       series: [{
         name: 'Trump',
-        data: [{x: new Date().getTime(), y: Math.random()}]
+        data: [{x: new Date().getTime(), y: 0}]
       }]
     })
+    this._dequeue()
   }
 
   updateChart(data) {
-    this.chart.series[0].addPoint([new Date().getTime(), data.trump.negative_percent], true, true)
+    this.queue.push(data.trump.rolling.average)
+    //var date = new Date()
+    //var updateTime = date.getTime()
+    //var seconds = date.getSeconds()
+
+    //if ((this.lastUpdatedAtSeconds == null) || ((seconds != this.lastUpdatedAtSeconds) && (seconds % 2 == 0)))
+      //this.lastUpdatedAtSeconds = seconds
+      //this.chart.series[0].addPoint([updateTime, data.trump.rolling.average], true, true)
+  }
+
+  _dequeue() {
+    var series = this.chart.series[0]
+    var queue  = this.queue
+
+    setInterval(function() {
+      var time = new Date().getTime()
+      series.addPoint([time, queue.shift()])
+    }, 1000)
   }
 }
