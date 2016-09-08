@@ -2,10 +2,11 @@
 
 # TODO
 
-1. Line graph with rolling average (calculate every 10 minutes or so)
-2. Bar graph with positives/negatives/neutral side by side (also rolling
-   average)
-3. State-by-state representation
+1. Weighted average
+2. State by state algo (also, do daily, not 2 minutes)
+3. Rolling avg seems to track way too few tweets (maybe)
+4. Do something to make rolling feel even more realtime
+5. Lite payloads to frontend seem a bit wonky
 
 To start your Phoenix app:
 
