@@ -1,3 +1,6 @@
+<div class="container fill">
+  <div id="map"></div>
+</div>
 <div class="col-xs-12">
   <div id="trump-chart"></div>
 </div>
