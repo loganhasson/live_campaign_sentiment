@@ -48,4 +48,4 @@ config :extwitter, :oauth, [
   access_token_secret: "c88Eto7cuMCWWMx7o7XDOIhXYF4Ue80bPXMUvvjI5VnHH"
 ]
 
-config :ex_sider, redis_adapter: LiveCampaignSentiment.RedixPool
+#config :ex_sider, redis_adapter: LiveCampaignSentiment.RedixPool

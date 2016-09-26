@@ -19,7 +19,8 @@ defmodule LiveCampaignSentiment.Mixfile do
   def application do
     [mod: {LiveCampaignSentiment, []},
      applications: [:phoenix, :phoenix_html, :cowboy, :logger, :gettext,
-                    :phoenix_ecto, :postgrex, :redix, :timex]]
+                    :phoenix_ecto, :postgrex, :timex, :extwitter,
+                    :oauth, :sentient]]
   end
 
   # Specifies which paths to compile per environment.
@@ -43,7 +44,8 @@ defmodule LiveCampaignSentiment.Mixfile do
      {:ex_sider, "~> 0.1"},
      {:poolboy, "~> 1.5"},
      {:redix, ">= 0.0.0"},
-     {:timex, "~> 3.0"}]
+     {:timex, "~> 3.0"},
+     {:exrm, "~> 1.0"}]
   end
 
   # Aliases are shortcut or tasks specific to the current project.

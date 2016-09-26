@@ -13,7 +13,7 @@ defmodule LiveCampaignSentiment do
       supervisor(LiveCampaignSentiment.Repo, []),
       # Here you could define other workers and supervisors as children
       # worker(LiveCampaignSentiment.Worker, [arg1, arg2, arg3]),
-      supervisor(LiveCampaignSentiment.RedixPool, []),
+      #supervisor(LiveCampaignSentiment.RedixPool, []),
       supervisor(LiveCampaignSentiment.StreamSupervisor, [], name: StreamSupervisor)
     ]
 

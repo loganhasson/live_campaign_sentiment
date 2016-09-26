@@ -19,7 +19,7 @@ defmodule LiveCampaignSentiment.Sentiment do
   end
 
   defp get_name_from_tweet(tweet) do
-    match_clinton = Regex.match?(~r/clinton/i, tweet.text)
+    match_clinton = Regex.match?(~r/hillary/i, tweet.text)
     match_trump   = Regex.match?(~r/trump/i, tweet.text)
 
     cond do

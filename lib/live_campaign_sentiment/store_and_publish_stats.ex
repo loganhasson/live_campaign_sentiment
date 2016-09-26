@@ -10,7 +10,7 @@ defmodule LiveCampaignSentiment.StoreAndPublishStats do
   end
 
   defp store_to_db(state) do
-    RedisHash.new("sentiment_stats") |> RedisHash.push(state)
+    #RedisHash.new("sentiment_stats") |> RedisHash.push(state)
 
     state
   end
