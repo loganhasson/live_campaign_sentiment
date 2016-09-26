@@ -31,8 +31,8 @@ defmodule LiveCampaignSentiment.Web do
       use Phoenix.Controller
 
       alias LiveCampaignSentiment.Repo
-      import Ecto
-      import Ecto.Query, only: [from: 1, from: 2]
+      #import Ecto
+      #import Ecto.Query, only: [from: 1, from: 2]
 
       import LiveCampaignSentiment.Router.Helpers
       import LiveCampaignSentiment.Gettext
