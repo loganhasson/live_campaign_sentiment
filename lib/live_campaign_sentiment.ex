@@ -10,7 +10,7 @@ defmodule LiveCampaignSentiment do
       # Start the endpoint when the application starts
       supervisor(LiveCampaignSentiment.Endpoint, []),
       # Start the Ecto repository
-      supervisor(LiveCampaignSentiment.Repo, []),
+      #supervisor(LiveCampaignSentiment.Repo, []),
       # Here you could define other workers and supervisors as children
       # worker(LiveCampaignSentiment.Worker, [arg1, arg2, arg3]),
       #supervisor(LiveCampaignSentiment.RedixPool, []),

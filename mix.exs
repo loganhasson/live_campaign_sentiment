@@ -19,8 +19,7 @@ defmodule LiveCampaignSentiment.Mixfile do
   def application do
     [mod: {LiveCampaignSentiment, []},
      applications: [:phoenix, :phoenix_html, :cowboy, :logger, :gettext,
-                    :phoenix_ecto, :postgrex, :timex, :extwitter,
-                    :oauth, :sentient]]
+                    :timex, :extwitter, :oauth, :sentient]]
   end
 
   # Specifies which paths to compile per environment.
