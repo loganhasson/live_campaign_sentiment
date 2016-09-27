@@ -7,7 +7,7 @@ defmodule LiveCampaignSentiment.UpdateStats do
     new_average = (new_total / new_count) |> Float.round(4)
 
     five_minutes_ago = Timex.now |> Timex.shift(minutes: -2)
-    new_rolling_data = ([%{value: value, timestamp: timestamp} | Enum.filter(state[name][:rolling][:tweets], fn(tweet) -> tweet_is_within_five_minutes?(five_minutes_ago, tweet) end)])
+    new_rolling_data = ([%{value: value, timestamp: timestamp} | Enum.filter(state[name][:rolling][:tweets], fn(tweet) -> tweet_is_within_five_minutes?(fifteen_seconds_before_latest_tweet(timestamp), tweet) end)])
     |> calculate_rolling_data
 
     new_location_data = state[name][:location]
@@ -15,6 +15,11 @@ defmodule LiveCampaignSentiment.UpdateStats do
     {new_positive, new_negative, new_positive_percent, new_negative_percent} = process_value(value, state[name], new_count)
 
     %{state | name => %{rolling: new_rolling_data, location: new_location_data, count: new_count, average: new_average, total: new_total, positive: new_positive, negative: new_negative, positive_percent: new_positive_percent, negative_percent: new_negative_percent}}
+  end
+
+  defp fifteen_seconds_before_latest_tweet(timestamp) do
+    {:ok, time} = Timex.parse(timestamp, "%a %b %d %T %z %Y", :strftime)
+    time |> Timex.Timezone.convert("Etc/UTC") |> Timex.shift(seconds: -10)
   end
 
   defp tweet_is_within_five_minutes?(five_minutes_ago, tweet) do
@@ -25,6 +30,7 @@ defmodule LiveCampaignSentiment.UpdateStats do
         |> Timex.compare(five_minutes_ago)
         |> convert_to_bool
       _ ->
+        IO.puts "couldn't convert timestamp"
         false
     end
   end

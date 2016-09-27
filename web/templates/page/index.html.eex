@@ -1,8 +1,10 @@
 <div class="container fill">
   <div class="row">
     <div class="col-xs-4">
-      <h2>Clinton vs. Trump</h2>
+      <h2>Clinton vs. Trump (Alpha)</h2>
       <p>Live sentiment analysis of tweets referencing the candidates.</p>
+      <p>Top chart breaks down percentage of tweets that are positive, negative, and neutral. Bottom chart represents the average sentiment score...generally more positive above the center line and more negative below the center line.</p>
+      <p>Hit me up on the twitters: <a target="_blank" href="https://twitter.com/loganhasson">@loganhasson</a>
     </div>
     <div class="col-xs-8">
       <div class="col-xs-12 live-column-chart">

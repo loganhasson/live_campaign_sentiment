@@ -41,11 +41,18 @@ config :live_campaign_sentiment, LiveCampaignSentiment.Repo,
   hostname: "localhost",
   pool_size: 10
 
+#config :extwitter, :oauth, [
+  #consumer_key: "O59tA4rzOEizOx440AZvXM9me",
+  #consumer_secret: "00MxxA76nrco1MUFN0taWqbAjiMSz6LLjBZkJRn4FZBH7XK2el",
+  #access_token: "15052759-FlOanNi7nRram66HmLOnGvQNAUiKm4mnbdJsHD2nA",
+  #access_token_secret: "c88Eto7cuMCWWMx7o7XDOIhXYF4Ue80bPXMUvvjI5VnHH"
+#]
+
 config :extwitter, :oauth, [
-  consumer_key: "O59tA4rzOEizOx440AZvXM9me",
-  consumer_secret: "00MxxA76nrco1MUFN0taWqbAjiMSz6LLjBZkJRn4FZBH7XK2el",
-  access_token: "15052759-FlOanNi7nRram66HmLOnGvQNAUiKm4mnbdJsHD2nA",
-  access_token_secret: "c88Eto7cuMCWWMx7o7XDOIhXYF4Ue80bPXMUvvjI5VnHH"
+  consumer_key: "H3UI8djxYNio3Sp7gfvqXfIPM",
+  consumer_secret: "BMGemnqLTfxPvqYqmhMj3fgJTXPQvsfwHCf8ifBYiT9LCpgzSv",
+  access_token: "15052759-16PFhCzl7pmAalE5r679dRfHBmqEHcWeeSeanEWvs",
+  access_token_secret: "DXcQszT7rWZOQ7KwGafyvInER6QbUt4tWWLm8XKsTKjho"
 ]
 
 #config :ex_sider, redis_adapter: LiveCampaignSentiment.RedixPool
