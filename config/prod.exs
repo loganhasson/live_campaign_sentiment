@@ -62,10 +62,10 @@ config :phoenix, :serve_endpoints, true
 #     config :live_campaign_sentiment, LiveCampaignSentiment.Endpoint, root: "."
 
 config :extwitter, :oauth, [
-  consumer_key: "O59tA4rzOEizOx440AZvXM9me",
-  consumer_secret: "00MxxA76nrco1MUFN0taWqbAjiMSz6LLjBZkJRn4FZBH7XK2el",
-  access_token: "15052759-FlOanNi7nRram66HmLOnGvQNAUiKm4mnbdJsHD2nA",
-  access_token_secret: "c88Eto7cuMCWWMx7o7XDOIhXYF4Ue80bPXMUvvjI5VnHH"
+  consumer_key: "blah",
+  consumer_secret: "blah",
+  access_token: "blah",
+  access_token_secret: "blah"
 ]
 
 # Finally import the config/prod.secret.exs
