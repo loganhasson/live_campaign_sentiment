@@ -49,10 +49,10 @@ config :live_campaign_sentiment, LiveCampaignSentiment.Repo,
 #]
 
 config :extwitter, :oauth, [
-  consumer_key: "H3UI8djxYNio3Sp7gfvqXfIPM",
-  consumer_secret: "BMGemnqLTfxPvqYqmhMj3fgJTXPQvsfwHCf8ifBYiT9LCpgzSv",
-  access_token: "15052759-16PFhCzl7pmAalE5r679dRfHBmqEHcWeeSeanEWvs",
-  access_token_secret: "DXcQszT7rWZOQ7KwGafyvInER6QbUt4tWWLm8XKsTKjho"
+  consumer_key: "blah",
+  consumer_secret: "blah",
+  access_token: "blah",
+  access_token_secret: "blah"
 ]
 
 #config :ex_sider, redis_adapter: LiveCampaignSentiment.RedixPool
